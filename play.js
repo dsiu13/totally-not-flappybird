@@ -11,12 +11,10 @@ var play_state = {
         this.bird = game.add.sprite(100, 245, 'bird');
         this.game.physics.arcade.enable(this.bird);
         this.bird.body.gravity.y = 950;
-
         this.bird.anchor.setTo(-0.2, 0.5);
 
         this.score = 0;
         score = 0;
-
         this.labelScore = game.add.text(20, 20, "0",
         { font: "30px Arial", fill: "#ffffff" });
 
