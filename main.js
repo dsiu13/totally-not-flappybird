@@ -53,7 +53,7 @@ var mainState = {
     this.bird.angle += 1;
 
     game.physics.arcade.overlap(
-    this.bird, this.pipes, this.restartGame, null, this);
+    this.bird, this.pipes, this.hit_pipe, null, this);
 
   },
 
@@ -110,6 +110,24 @@ var mainState = {
     this.score += 1;
     this.labelScore.text = this.score;
   },
+
+  hit_pipe: function() {
+    // If the bird has already hit a pipe, do nothing
+  // It means the bird is already falling off the screen
+  if (this.bird.alive == false)
+      return;
+
+  // Set the alive property of the bird to false
+  this.bird.alive = false;
+
+  // Prevent new pipes from appearing
+  game.time.events.remove(this.timer);
+
+  // Go through all the pipes, and stop their movement
+  this.pipes.forEach(function(p){
+      p.body.velocity.x = 0;
+  }, this);
+},
 
 };
 
