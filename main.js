@@ -7,6 +7,9 @@ var mainState = {
     //Pipes
     game.load.image('pipe', 'assets/pipe.png');
 
+    //jump sound
+    game.load.audio('jump', 'assets/jump.wav');
+
   },
 
 //called after preload - Setting up the game
@@ -42,6 +45,9 @@ var mainState = {
 
     //Smoothing Animation - anchor to the left and downward
     this.bird.anchor.setTo(-0.2, 0.5);
+
+    //sound
+    this.jumpSound = game.add.audio('jump');
   },
 
 //Games logic - called 60 times/sec
@@ -59,6 +65,12 @@ var mainState = {
 
   //jump
   jump: function() {
+
+    if (this.bird.alive == false)
+        return;
+
+    this.jumpSound.play();
+
     this.bird.body.velocity.y = -350;
     // Create an animation on the bird
     var animation = game.add.tween(this.bird);
