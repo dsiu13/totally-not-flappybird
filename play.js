@@ -20,6 +20,7 @@ var play_state = {
         this.bird.anchor.setTo(-0.2, 0.5);
 
         this.score = 0;
+        score = 0;
         this.labelScore = game.add.text(20, 20, "0",
         { font: "30px Arial", fill: "#ffffff" });
 
@@ -82,6 +83,7 @@ var play_state = {
 
         this.score += 1;
         this.labelScore.text = this.score;
+        score += 1
 
     },
 };
