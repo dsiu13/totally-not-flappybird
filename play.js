@@ -8,19 +8,15 @@ var play_state = {
         this.pipes.createMultiple(20, 'pipe');
         this.timer = this.game.time.events.loop(1500, this.add_row_of_pipes, this);
 
-        //Displaying da bird
         this.bird = game.add.sprite(100, 245, 'bird');
-
-        //Bird getting Physics
         this.game.physics.arcade.enable(this.bird);
-
-        //Gravity for the Bird
         this.bird.body.gravity.y = 950;
 
         this.bird.anchor.setTo(-0.2, 0.5);
 
         this.score = 0;
         score = 0;
+
         this.labelScore = game.add.text(20, 20, "0",
         { font: "30px Arial", fill: "#ffffff" });
 
